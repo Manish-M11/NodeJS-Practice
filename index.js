@@ -9,7 +9,7 @@ const server = express();
 //server.use(express.json()); //it will read the body of json type without this it will not capture
 
 //middleware to log the incidnt
-server.use(morgan("default"));
+server.use(morgan("combined"));
 
 //to host static files in public folder
 //server.use(express.static("public"));
@@ -79,9 +79,9 @@ server.get("/products/:id", (req, res) => {
 // });
 
 // //server listening.
-server.listen(8080, () => {
-  console.log("Server Started 8080");
-});
+// server.listen(8080, () => {
+//   console.log("Server Started 8080");
+// });
 
 const app = require("./app");
 
