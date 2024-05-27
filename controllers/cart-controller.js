@@ -13,8 +13,12 @@ exports.addCartItem = async (req, res, next) => {
     if(quantity === undefined) {
         quantity = 1;
     }
-    console.log("Quantity: ",quantity);
+   // console.log("Quantity: ",quantity);
 
+   if(cart.find((item) => item.id === parseInt(id))) {
+    return res.json({status: "Product already present in cart"});
+   }
+   
     const productIndex = products.findIndex((product) => product.id === parseInt(id));
     const product = products[productIndex];
 
@@ -42,21 +46,21 @@ exports.updateCartItem = async (req, res, next) => {
     const {params: {id}} = req;
     let quantity = req.body;
 
-    console.log(Object.keys(quantity).length);
-    if(Object.keys(quantity).length === 0) {
-        return res.status(404).json("Only Quantity can be updated!!");
+    //console.log(Object.keys(quantity).length);
+    if(Object.keys(quantity).length === 0 && Object.keys(quantity) != "Quantity") {
+        return res.status(404).json({status: "Please provide Quantity to update"});
     }
 
     const cartIndex = cart.findIndex((item) => item.id === parseInt(id));
     const cartItem = cart[cartIndex];
 
-    console.log("cartItem: ",cartItem);
+    //console.log("cartItem: ",cartItem);
 
-    console.log("Quantity for updation: ",quantity);
+    //console.log("Quantity for updation: ",quantity);
     const updateCartItem = {...cartItem, ...quantity};
     cart[cartIndex] = updateCartItem;
 
-    console.log("after update: ",updateCartItem);
+    //console.log("after update: ",updateCartItem);
     fs.writeFile("cart.json", JSON.stringify(cart), (err) => {
         if(err) {
             console.log(err);

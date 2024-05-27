@@ -1,18 +1,1 @@
-[
-  { "id": 2, "title": "iPhone X", "price": 899, "Quantity": 1 },
-  {
-    "id": 14,
-    "title": "Non-Alcoholic Concentrated Perfume Oil",
-    "price": 120,
-    "Quantity": 2
-  },
-  {
-    "id": 8,
-    "title": "Microsoft Surface Laptop 4",
-    "price": 1499,
-    "Quantity": 5
-  },
-  { "id": 9, "title": "Infinix INBOOK", "price": 1099, "Quantity": 3 },
-  { "id": 5, "title": "Huawei P30", "price": 499, "Quantity": 5 },
-  { "id": 16, "title": "Hyaluronic Acid Serum", "price": 19, "Quantity": 3 }
-]
+[{"id":2,"title":"iPhone X","price":899,"Quantity":1},{"id":14,"title":"Non-Alcoholic Concentrated Perfume Oil","price":120,"Quantity":2},{"id":8,"title":"Microsoft Surface Laptop 4","price":1499,"Quantity":5},{"id":9,"title":"Infinix INBOOK","price":1099,"Quantity":3},{"id":5,"title":"Huawei P30","price":499,"Quantity":5},{"id":20,"title":"Freckle Treatment Cream- 15gm","price":70,"Quantity":10},{"id":24,"title":"cereals muesli fruit nuts","price":46,"Quantity":3}]
