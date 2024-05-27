@@ -38,6 +38,7 @@ exports.deleteProductById = async (req, res, next) => {
   const id = req.params.id;
   const deleteProduct = products[id - 1];
   const productIndex = products.findIndex((p) => p.id === parseInt(id));
+  console.log("product_index: ", productIndex);
   products.splice(productIndex, 1);
   fs.writeFile("products.json", JSON.stringify(products), (err) => {
     if (err) {
