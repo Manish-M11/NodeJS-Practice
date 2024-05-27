@@ -1,0 +1,5 @@
+{
+  "watch": [".", "controllers", "routers"],
+  "ext": "js,json",
+  "ignore": ["products.json"]
+}

@@ -1,3 +1,5 @@
+const fs = require("fs");
+
 const products = require("./../products.json");
 
 exports.getProducts = async (req, res, next) => {
@@ -23,12 +25,25 @@ exports.updateProductById = async (req, res, next) => {
   const productIndex = products.findIndex((p) => p.id === parseInt(id));
   const product = products[productIndex];
   products.splice(productIndex, 1, { ...product, ...req.body });
-  res.json({ status: "Changed" });
+  fs.writeFile("products.json", JSON.stringify(products), (err) => {
+    if (err) {
+      return res.json({ status: "Could not update." });
+    } else {
+      return res.json({ status: "Change Succesfull" });
+    }
+  });
 };
 
 exports.deleteProductById = async (req, res, next) => {
   const id = req.params.id;
+  const deleteProduct = products[id - 1];
   const productIndex = products.findIndex((p) => p.id === parseInt(id));
   products.splice(productIndex, 1);
-  res.status(201).json(products[id]); //sending same as response
+  fs.writeFile("products.json", JSON.stringify(products), (err) => {
+    if (err) {
+      return res.json({ status: "Could not delete." });
+    } else {
+      return res.status(201).json(deleteProduct); //sending same as response
+    }
+  });
 };
