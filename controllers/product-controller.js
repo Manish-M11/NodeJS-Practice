@@ -36,10 +36,14 @@ exports.updateProductById = async (req, res, next) => {
 
 exports.deleteProductById = async (req, res, next) => {
   const id = req.params.id;
+<<<<<<< HEAD
   const deleteProduct = products[id - 1];
+=======
+>>>>>>> c01111cc17be2d3c5e47c1c075d12028c581dbc5
   const productIndex = products.findIndex((p) => p.id === parseInt(id));
   console.log("product_index: ", productIndex);
   products.splice(productIndex, 1);
+<<<<<<< HEAD
   fs.writeFile("products.json", JSON.stringify(products), (err) => {
     if (err) {
       return res.json({ status: "Could not delete." });
@@ -47,4 +51,6 @@ exports.deleteProductById = async (req, res, next) => {
       return res.status(201).json(deleteProduct); //sending same as response
     }
   });
+=======
+>>>>>>> c01111cc17be2d3c5e47c1c075d12028c581dbc5
 };
