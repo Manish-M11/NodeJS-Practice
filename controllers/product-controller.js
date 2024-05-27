@@ -28,7 +28,12 @@ exports.updateProductById = async (req, res, next) => {
 
 exports.deleteProductById = async (req, res, next) => {
   const id = req.params.id;
+  console.log("id: ",id);
+  const prod = products[id-1]
+  console.log(prod);
   const productIndex = products.findIndex((p) => p.id === parseInt(id));
+  console.log("product_index: ",productIndex);
   products.splice(productIndex, 1);
-  res.status(201).json(products[id]); //sending same as response
+  console.log(products);
+  res.status(201).json(prod); //sending same as response
 };
